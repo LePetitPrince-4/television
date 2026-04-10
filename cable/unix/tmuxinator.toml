@@ -1,0 +1,26 @@
+[metadata]
+name = "tmuxinator"
+description = "list and manage tmuxinator projects"
+requirements = ["tmuxinator", "tmux"]
+
+[source]
+command = ["tmuxinator ls -n | sed '1d'"]
+
+
+  [preview]
+command = "tmuxinator debug {}"
+
+[keybindings]
+enter = "actions:session-start"
+
+[actions.session-start]
+description = "Start a tmuxinator session"
+command = "tmuxinator start {}"
+mode = "execute"
+
+[actions.session-stop]
+description = "Stop a tmuxinator session"
+command = "tmuxinator stop {}"
+mode = "fork"
+
+
